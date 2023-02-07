@@ -1,0 +1,115 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  <form class=""form" action="/confirmation" method=""post">
+  {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Name"
+        },
+        value: {
+          html: data['first-name']
+        },
+        actions: {
+          items: [
+            {
+              href: "question-01",
+              text: "Change",
+              visuallyHiddenText: "name"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Last name"
+        },
+        value: {
+          html: data['last-name']
+        },
+        actions: {
+          items: [
+            {
+              href: "question-01",
+              text: "Change",
+              visuallyHiddenText: "name"
+            }
+          ]
+        }
+      },
+      
+      {
+        key: {
+          text: "Address"
+        },
+        value: {
+          html: data['country']
+        },
+        actions: {
+          items: [
+            {
+              href: "question-02",
+              text: "Change",
+              visuallyHiddenText: "address"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "When do you want to start getting your chocolate delivered?"
+        },
+        value: {
+          html: data['deli-day']+' / '+data['deli-month']+' / '+data['deli-year']
+        },
+        actions: {
+          items: [
+            {
+              href: "question-03",
+              text: "Change",
+              visuallyHiddenText: "delivery"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Contact details"
+        },
+        value: {
+          html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "contact details"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+  
+  {{ govukButton ({
+    html: ' Send application!!!' 
+  })
+}}
+  </div>
+</form>
+</div>
+
+{% endblock %}
