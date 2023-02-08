@@ -11,7 +11,7 @@
 
       <div class="govuk-panel govuk-panel--confirmation">
         <h1 class="govuk-panel__title">Application complete</h1>
-        {% if data['first-name'] == 'Karen' %}
+        {% if data['first-name'] != 'Karen' %}
           <img src="/public/images/charlie.jpg" width="300px">
         {% endif %}
         <div class="govuk-panel__body">
